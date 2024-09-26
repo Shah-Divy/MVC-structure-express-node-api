@@ -5,7 +5,7 @@ const { product, getAllProducts, getProductById } = require('../controllers/prod
 const router = express.Router();
 
 router.post('/product', product);
-router.get('/products/all-data', getAllProducts); // Get all products
+router.get('/product/all-data', getAllProducts); // Get all products
 router.get('/product/:id', getProductById); // Get product by ID
 
 module.exports = router;
