@@ -1,4 +1,4 @@
-// src/index.js
+//index.js
 const express = require('express');
 const mongoose = require('mongoose');
 const productRoutes = require('./src/routes/product.routes');
