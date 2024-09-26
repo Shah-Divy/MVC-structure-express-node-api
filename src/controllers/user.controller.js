@@ -42,4 +42,28 @@ const signup = async (req, res) => {
   }
 };
 
-module.exports = { signup };
+// Controller to get all User
+const getAllSignup = async (req, res) => {
+  try {
+    const Users = await User.find(); // Fetch all User
+    res.status(200).send(Users);
+  } catch (err) {
+    res.status(500).send('Error fetching User: ' + err.message);
+  }
+};
+
+// Controller to get a User by ID
+const getSignupById = async (req, res) => {
+  const { id } = req.params;
+  
+  try {
+    const user = await User.findById(id); // Find User by ID
+    if (!user) return res.status(404).send('User not found');
+    
+    res.status(200).send(user);
+  } catch (err) {
+    res.status(500).send('Error fetching User: ' + err.message);
+  }
+};
+
+module.exports = { signup, getAllSignup, getSignupById };
