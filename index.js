@@ -1,8 +1,8 @@
 // src/index.js
 const express = require('express');
 const mongoose = require('mongoose');
-const productRoutes = require('./routes/product.routes');
-const userRoutes = require('./routes/user.routes');
+const productRoutes = require('./src/routes/product.routes');
+const userRoutes = require('./src/routes/user.routes');
 
 const app = express();
 app.use(express.json()); // Middleware to parse JSON request bodies
