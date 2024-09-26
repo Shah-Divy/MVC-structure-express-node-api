@@ -1,6 +1,6 @@
 // src/controllers/user.controller.js
 const User = require('../models/user.model');
-//const bcrypt = require('bcryptjs');
+const bcrypt = require('bcryptjs');
 const Joi = require('joi');
 
 const signupSchema = Joi.object({
@@ -21,13 +21,13 @@ const signup = async (req, res) => {
   if (existingUser) return res.status(400).send('Username or email already exists');
 
   // Hash the password
- // const hashedPassword = await bcrypt.hash(password, 10);
+  const hashedPassword = await bcrypt.hash(password, 10);
 
   // Create and save new user
   const newUser = new User({
     username,
     email,
-    password
+    password: hashedPassword
   });
 
   try {
